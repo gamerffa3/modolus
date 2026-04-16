@@ -1,1 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>MODULOS AGENCY | Digital Gaming & Tech Solutions</title>
+  <!-- Google Fonts: Orbitron + Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            orbitron: ['Orbitron', 'sans-serif'],
+            poppins: ['Poppins', 'sans-serif'],
+          },
+          animation: {
+            'spin-slow': 'spin 8s linear infinite',
+            'bounce-slow': 'bounce 2s infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-20px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #000000;
+      color: #ffffff;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Custom glow effects */
+    .glow-cyan-sm {
+      box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+    }
+    .glow-cyan-md {
+      box-shadow: 0 0 30px rgba(6, 182, 212, 0.6);
+    }
+    .glow-cyan-lg {
+      box-shadow: 0 0 40px rgba(6, 182, 212, 0.6);
+    }
+    .hover-glow-card:hover {
+      box-shadow: 0 0 28px rgba(6, 182, 212, 0.5);
+      transition: all 0.3s ease;
+    }
+    .bg-gradient-cyan-blue {
+      background: linear-gradient(135deg, #06b6d4, #3b82f6);
+    }
+    .text-gradient {
+      background: linear-gradient(135deg, #06b6d4, #3b82f6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    /* Scroll indicator animation */
+    @keyframes bounceY {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+    .animate-bounceY {
+      animation: bounceY 2s infinite ease-in-out;
+    }
+    /* Floating stars */
+    @keyframes floatUpDown {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+    .float-star {
+      animation: floatUpDown 4s ease-in-out infinite;
+    }
+    /* Rotating orb */
+    @keyframes rotateScale {
+      0% { transform: scale(1) rotate(0deg); opacity: 0.4; }
+      50% { transform: scale(1.25) rotate(5deg); opacity: 0.7; }
+      100% { transform: scale(1) rotate(0deg); opacity: 0.4; }
+    }
+    .animate-rotate-scale {
+      animation: rotateScale 10s infinite ease-in-out;
+    }
+    /* Fade in animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-600 { animation-delay: 0.6s; }
+    .delay-800 { animation-delay: 0.8s; }
+    .delay-1000 { animation-delay: 1.0s; }
+    .opacity-0 { opacity: 0; }
+    /* Card hover */
+    .service-card, .package-card {
+      transition: all 0.3s ease;
+    }
+    /* Mobile menu */
+    .mobile-menu {
+      transition: all 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-cyan-500/20 px-6 md:px-8 transition-all duration-500" style="transform: translateY(0);">
+    <div class="max-w-7xl mx-auto flex justify-between items-center py-4">
+      <div class="text-2xl md:text-3xl font-orbitron font-extrabold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+        MODULOS
+      </div>
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#services" class="text-gray-300 hover:text-cyan-400 transition font-poppins font-medium">Services</a>
+        <a href="#packages" class="text-gray-300 hover:text-cyan-400 transition font-poppins font-medium">Packages</a>
+        <a href="#contact" class="text-gray-300 hover:text-cyan-400 transition font-poppins font-medium">Contact</a>
+        <a href="#packages" class="bg-gradient-to-r from-cyan-500 to-blue-600 px-5 py-2 rounded-lg font-semibold hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] transition-all hover:scale-105">
+          Get Started
+        </a>
+      </div>
+      <!-- Mobile Hamburger -->
+      <button id="menuBtn" class="md:hidden text-white z-50">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden bg-black/95 backdrop-blur-lg border-t border-cyan-500/20 overflow-hidden">
+      <div class="flex flex-col py-6 space-y-5 px-6">
+        <a href="#services" class="text-gray-200 text-lg font-poppins hover:text-cyan-400 transition">Services</a>
+        <a href="#packages" class="text-gray-200 text-lg font-poppins hover:text-cyan-400 transition">Packages</a>
+        <a href="#contact" class="text-gray-200 text-lg font-poppins hover:text-cyan-400 transition">Contact</a>
+        <a href="#packages" class="bg-gradient-to-r from-cyan-500 to-blue-600 text-center py-3 rounded-xl font-bold">Get Started</a>
+      </div>
+    </div>
+  </header>
 
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-28">
+    <div class="absolute top-20 left-10 w-72 h-72 bg-cyan-500 rounded-full blur-[100px] opacity-30 animate-pulse-slow"></div>
+    <div class="absolute bottom-20 right-10 w-96 h-96 bg-blue-600 rounded-full blur-[120px] opacity-30 animate-pulse-slow"></div>
+    
+    <div class="max-w-6xl mx-auto text-center z-10">
+      <div class="opacity-0 fade-in-up">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-4"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L13.063 8.5A2 2 0 0 0 14.5 9.937l6.135 1.581a.5.5 0 0 1 0 .962L14.5 13.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"></path></svg>
+      </div>
+      <h1 class="font-orbitron font-black text-6xl md:text-8xl lg:text-9xl text-white opacity-0 fade-in-up delay-200">MODULOS</h1>
+      <h2 class="font-orbitron font-bold text-5xl md:text-7xl bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent opacity-0 fade-in-up delay-400">AGENCY</h2>
+      <p class="text-cyan-300 text-2xl md:text-4xl font-light mt-4 opacity-0 fade-in-up delay-600">Create • Produce • Grow</p>
+      <p class="text-gray-400 text-lg mt-4 max-w-2xl mx-auto opacity-0 fade-in-up delay-800">All-in-one digital, gaming, and tech solutions</p>
+      <div class="flex flex-col sm:flex-row gap-5 justify-center mt-8 opacity-0 fade-in-up delay-1000">
+        <a href="#packages" class="bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-3 rounded-xl font-bold flex items-center gap-2 hover:shadow-[0_0_25px_rgba(6,182,212,0.7)] hover:scale-105 transition-all justify-center">
+          Get Started <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+        <a href="#contact" class="border border-cyan-500 px-8 py-3 rounded-xl font-bold hover:bg-cyan-500/10 hover:shadow-[0_0_15px_rgba(6,182,212,0.4)] hover:scale-105 transition-all">
+          Contact Now
+        </a>
+      </div>
+    </div>
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+      <div class="w-6 h-10 border-2 border-cyan-400 rounded-full flex justify-center">
+        <div class="w-1.5 h-3 bg-cyan-400 rounded-full mt-2 animate-bounceY"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-24 px-6 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-80 h-80 bg-blue-500/20 rounded-full blur-[100px]"></div>
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="font-orbitron text-4xl md:text-5xl font-bold">Our <span class="text-cyan-400">Services</span></h2>
+        <p class="text-gray-400 mt-3 text-lg">Premium solutions tailored for your digital success</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Service cards will be populated by JS -->
+        <div id="servicesContainer"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Packages Section -->
+  <section id="packages" class="py-24 px-6 relative">
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-cyan-500/20 rounded-full blur-[120px]"></div>
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="font-orbitron text-4xl md:text-5xl font-bold">Monthly <span class="text-cyan-400">Packages</span></h2>
+        <p class="text-gray-400 mt-2">Choose the perfect plan for your growth</p>
+      </div>
+      <div id="packagesContainer" class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center"></div>
+    </div>
+  </section>
+
+  <!-- Special Offer Section -->
+  <section class="py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="relative border-2 border-cyan-500 rounded-3xl bg-gradient-to-br from-gray-900/80 to-gray-900/60 backdrop-blur-md p-8 md:p-12 overflow-hidden">
+        <div class="absolute top-0 left-0 w-32 h-32 bg-cyan-500/30 rounded-full blur-3xl animate-rotate-scale"></div>
+        <div class="absolute bottom-0 right-0 w-40 h-40 bg-blue-500/30 rounded-full blur-3xl animate-rotate-scale"></div>
+        <div class="float-star absolute top-5 right-10">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <div class="flex flex-col items-center text-center relative z-10">
+          <div class="inline-flex items-center gap-2 bg-cyan-500/20 px-4 py-1 rounded-full border border-cyan-400/40 mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L13.063 8.5A2 2 0 0 0 14.5 9.937l6.135 1.581a.5.5 0 0 1 0 .962L14.5 13.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"></path></svg>
+            <span class="text-sm font-bold">SPECIAL BUNDLE</span>
+          </div>
+          <div class="bg-gradient-to-br from-cyan-500/20 to-blue-500/20 p-5 rounded-full mb-5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M6 11h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2Z"></path><path d="M15 3h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"></path><path d="M6 15h2"></path><path d="M15 9h2"></path></svg>
+          </div>
+          <h3 class="font-orbitron text-4xl md:text-6xl font-bold">Gaming Creator Pack</h3>
+          <p class="text-gray-300 max-w-xl my-4">Everything you need to kickstart your gaming content creation journey. Premium editing, custom thumbnails, branding, and more!</p>
+          <div class="flex flex-wrap gap-5 justify-center items-center my-3">
+            <span class="text-gray-500 line-through text-2xl">₹4999</span>
+            <span class="text-5xl md:text-7xl font-orbitron font-black bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">₹2999</span>
+          </div>
+          <p class="text-cyan-400 mb-6">Save ₹2000 • Limited Time Offer</p>
+          <a href="#contact" class="bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:shadow-[0_0_30px_rgba(6,182,212,0.7)] transition-all hover:scale-105 inline-flex gap-2">Claim This Offer <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-24 px-6 relative">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="bg-gray-900/30 backdrop-blur-sm border border-cyan-500/20 rounded-2xl p-8">
+          <h3 class="font-orbitron text-3xl font-bold mb-6">Contact Information</h3>
+          <div class="space-y-6">
+            <a href="https://wa.me/917736512393" target="_blank" class="flex items-center gap-4 bg-cyan-500/10 p-4 rounded-xl hover:bg-cyan-500/20 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              <div><p class="font-bold">WhatsApp</p><p>+91 7736512393</p></div>
+            </a>
+            <div class="flex items-center gap-4 bg-cyan-500/10 p-4 rounded-xl">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <div><p class="font-bold">Phone</p><p>7736512393</p></div>
+            </div>
+            <div class="flex items-center gap-4 bg-cyan-500/10 p-4 rounded-xl">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <div><p class="font-bold">Email</p><p>hello@modulosagency.com</p></div>
+            </div>
+            <div class="bg-cyan-500/10 p-4 rounded-xl">
+              <p class="font-bold">Business Hours</p>
+              <p class="text-gray-300">Monday - Saturday: 10:00 AM - 8:00 PM<br />Sunday: Closed</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-900/30 backdrop-blur-sm border border-cyan-500/20 rounded-2xl p-8">
+          <h3 class="font-orbitron text-3xl font-bold mb-6">Send us a Message</h3>
+          <form id="contactForm" class="space-y-5">
+            <input type="text" name="name" placeholder="Your Name" required class="w-full bg-gray-900/50 border border-cyan-500/30 rounded-lg p-3 text-white focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400">
+            <input type="email" name="email" placeholder="Email Address" required class="w-full bg-gray-900/50 border border-cyan-500/30 rounded-lg p-3 text-white focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400">
+            <select name="service" class="w-full bg-gray-900/50 border border-cyan-500/30 rounded-lg p-3 text-white">
+              <option>Content Editing</option><option>Thumbnail & Design</option><option>Voice & Dubbing</option><option>Development</option><option>Discord & Bots</option><option>Minecraft</option><option>Monthly Package</option><option>Gaming Creator Pack</option>
+            </select>
+            <textarea name="message" rows="4" placeholder="Your Message" required class="w-full bg-gray-900/50 border border-cyan-500/30 rounded-lg p-3 text-white"></textarea>
+            <button type="submit" class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:shadow-[0_0_20px_cyan] transition">Send Message <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-t from-black to-gray-900 border-t border-cyan-500/20 pt-16 pb-8 px-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div>
+        <h2 class="font-orbitron text-2xl bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent font-bold">MODULOS</h2>
+        <p class="text-cyan-300 mt-2">Create • Produce • Grow</p>
+        <p class="text-gray-500 mt-2">All-in-one digital, gaming, and tech solutions.</p>
+      </div>
+      <div>
+        <h4 class="font-orbitron text-xl mb-4">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="#services" class="text-gray-400 hover:text-cyan-400 transition">Services</a></li>
+          <li><a href="#packages" class="text-gray-400 hover:text-cyan-400 transition">Packages</a></li>
+          <li><a href="#contact" class="text-gray-400 hover:text-cyan-400 transition">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-orbitron text-xl mb-4">Contact</h4>
+        <div class="space-y-3">
+          <a href="https://wa.me/917736512393" target="_blank" class="flex gap-2 text-gray-400 hover:text-cyan-400"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg> +91 7736512393</a>
+          <p class="flex gap-2 text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> 7736512393</p>
+          <p class="flex gap-2 text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> hello@modulosagency.com</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center text-gray-500 text-sm border-t border-cyan-500/20 pt-6 mt-10">© <span id="currentYear"></span> MODULOS AGENCY. All rights reserved.</div>
+  </footer>
+
+  <script>
+    // Services Data
+    const servicesData = [
+      { icon: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>', title: "Content Editing", services: [{name:"Reels / Shorts Editing", price:"₹200"},{name:"Long Video Editing", price:"₹300–₹800"},{name:"Gaming Highlights", price:"₹300"},{name:"Meme Editing", price:"₹250"},{name:"Stream Highlights", price:"₹400"}] },
+      { icon: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><circle cx="12" cy="12" r="3"></circle></svg>', title: "Thumbnail & Design", services: [{name:"Thumbnail", price:"₹150"},{name:"Premium Thumbnail", price:"₹250"},{name:"Logo", price:"₹400–₹800"},{name:"Banner", price:"₹300"},{name:"Overlay", price:"₹300–₹700"}] },
+      { icon: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>', title: "Voice & Dubbing", services: [{name:"Voice Over", price:"₹200–₹500"},{name:"Dubbing", price:"₹150–₹300/min"},{name:"Commentary", price:"₹300"}] },
+      { icon: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>', title: "Development", services: [{name:"Website", price:"₹999+"},{name:"App Development", price:"₹2000–₹6000"}] },
+      { icon: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M8 7h8"></path><path d="M12 7v10"></path><path d="M8 13h8"></path></svg>', title: "Discord & Bots", services: [{name:"Server Setup", price:"₹300+"},{name:"Custom Bots", price:"₹500–₹2000"}] },
+      { icon: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M8 12h8"></path></svg>', title: "Minecraft", services: [{name:"Server Setup", price:"₹500+"},{name:"Plugins", price:"₹300–₹800"},{name:"Mods / Setup", price:"₹500+"}] }
+    ];
+
+    function renderServices() {
+      const container = document.getElementById('servicesContainer');
+      if (!container) return;
+      container.innerHTML = servicesData.map((service, idx) => `
+        <div class="bg-gray-900/50 backdrop-blur-sm border border-cyan-500/20 rounded-2xl p-6 hover:border-cyan-500/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.3)] transition-all" style="animation: fadeInUp 0.6s ease-out forwards; animation-delay: ${idx * 0.1}s; opacity: 0;">
+          <div class="bg-cyan-500/10 w-14 h-14 rounded-full flex items-center justify-center mb-5">
+            ${service.icon}
+          </div>
+          <h3 class="font-orbitron text-xl font-bold mb-4">${service.title}</h3>
+          <div class="space-y-3">
+            ${service.services.map((item, i) => `
+              <div>
+                <div class="flex justify-between text-sm">
+                  <span class="text-gray-300">${item.name}</span>
+                  <span class="text-cyan-400 font-bold">${item.price}</span>
+                </div>
+                ${i !== service.services.length-1 ? '<div class="border-t border-gray-800/50 my-2"></div>' : ''}
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Packages Data
+    const packagesData = [
+      { name: "Starter", price: "₹999", icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>', features: ["Basic video editing", "2 thumbnails/month", "Email support", "24-48h delivery", "Revisions: 2"], popular: false },
+      { name: "Growth", price: "₹1999", icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="M12 12v9"></path><path d="m8 17 4 4 4-4"></path></svg>', features: ["Advanced video editing", "5 thumbnails/month", "Priority support", "12-24h delivery", "Revisions: 5", "Custom graphics", "Social media kit"], popular: true },
+      { name: "Pro", price: "₹3999", icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M2 4h20v12H2z"></path><path d="M8 20h8"></path><path d="M12 16v4"></path><path d="m4 8 2 2 4-4"></path></svg>', features: ["Unlimited video editing", "Unlimited thumbnails", "24/7 premium support", "6-12h delivery", "Unlimited revisions", "Custom branding", "Content strategy", "Dedicated manager"], popular: false }
+    ];
+
+    function renderPackages() {
+      const container = document.getElementById('packagesContainer');
+      if (!container) return;
+      container.innerHTML = packagesData.map((pkg, idx) => `
+        <div class="relative bg-gray-900/50 backdrop-blur-sm rounded-2xl border ${pkg.popular ? 'border-cyan-500 shadow-[0_0_30px_rgba(6,182,212,0.4)] scale-105 z-10' : 'border-cyan-500/20'} p-6 hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] transition-all" style="animation: fadeInUp 0.6s ease-out forwards; animation-delay: ${idx * 0.1}s; opacity: 0;">
+          ${pkg.popular ? '<div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-cyan-500 to-blue-600 px-4 py-1 rounded-full text-xs font-bold">MOST POPULAR</div>' : ''}
+          <div class="bg-cyan-500/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            ${pkg.icon}
+          </div>
+          <h3 class="font-orbitron text-2xl font-bold text-center">${pkg.name}</h3>
+          <div class="text-center my-4">
+            <span class="text-cyan-400 font-orbitron text-4xl font-bold">${pkg.price}</span>
+            <span class="text-gray-400">/month</span>
+          </div>
+          <ul class="space-y-2 mt-4 mb-6">
+            ${pkg.features.map(feat => `<li class="flex items-center gap-2 text-gray-300 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>${feat}</li>`).join('')}
+          </ul>
+          <a href="#contact" class="block text-center py-3 rounded-xl font-bold transition-all ${pkg.popular ? 'bg-gradient-to-r from-cyan-500 to-blue-600 hover:shadow-glow' : 'border border-cyan-500 hover:bg-cyan-500/10'}">Get Started</a>
+        </div>
+      `).join('');
+    }
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => {
+        menuOpen = !menuOpen;
+        if (menuOpen) {
+          mobileMenu.classList.remove('hidden');
+          menuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+        } else {
+          mobileMenu.classList.add('hidden');
+          menuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+        }
+      });
+    }
+
+    // Close mobile menu when clicking on links
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuOpen = false;
+        if (menuBtn) menuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+      });
+    });
+
+    // Form submission
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = contactForm.querySelector('[name="name"]').value;
+        const email = contactForm.querySelector('[name="email"]').value;
+        const service = contactForm.querySelector('[name="service"]').value;
+        const message = contactForm.querySelector('[name="message"]').value;
+        const whatsappMsg = `Hello MODULOS Agency!%0AName: ${name}%0AEmail: ${email}%0AService: ${service}%0AMessage: ${message}`;
+        window.open(`https://wa.me/917736512393?text=${whatsappMsg}`, '_blank');
+      });
+    }
+
+    // Current year
+    document.getElementById('currentYear').innerText = new Date().getFullYear();
+
+    // Intersection Observer for scroll animations
+    const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.service-card, .package-card').forEach(el => observer.observe(el));
+
+    renderServices();
+    renderPackages();
+  </script>
+</body>
+</html>
