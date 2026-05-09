@@ -38,10 +38,8 @@
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #111; }
     ::-webkit-scrollbar-thumb { background: #facc15; border-radius: 10px; }
-    input, select, textarea { background: #1e1e1e; border: 1px solid #333; color: white; transition: 0.2s; }
-    input:focus, select:focus, textarea:focus { border-color: #facc15; outline: none; box-shadow: 0 0 0 2px rgba(250,204,21,0.2); }
-    .file-upload-label { background: #1e1e1e; border: 1px dashed #facc15; border-radius: 1rem; padding: 0.75rem; text-align: center; cursor: pointer; transition: 0.2s; }
-    .file-upload-label:hover { background: #2a2a2a; border-color: #facc15; }
+    input, select, textarea { background: #1e1e1e; border: 1px solid #333; color: white; transition: 0.2s; border-radius: 1rem; padding: 0.75rem 1rem; outline: none; }
+    input:focus, select:focus, textarea:focus { border-color: #facc15; box-shadow: 0 0 0 2px rgba(250,204,21,0.2); }
     .social-icon-circle { transition: all 0.2s ease; display: inline-flex; flex-direction: column; align-items: center; }
     .social-icon-circle:hover { transform: translateY(-5px); color: #facc15; }
     .turboig-btn { background: linear-gradient(135deg, #facc15 0%, #eab308 100%); color: black; font-weight: bold; border: none; transition: all 0.3s; }
@@ -66,7 +64,7 @@
   <div class="cursor-dot"></div>
   <div class="cursor-outline"></div>
 
-  <!-- STICKY NAVBAR (TurboIG button removed from navbar - only in about section) -->
+  <!-- STICKY NAVBAR -->
   <nav class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-yellow-600/30 py-4 px-6 md:px-12 flex justify-between items-center">
     <div class="flex items-center gap-2">
       <div class="text-2xl font-black tracking-tighter bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">MODULOS</div>
@@ -86,7 +84,7 @@
     <div class="md:hidden text-2xl cursor-pointer" id="menuBtn"><i class="fas fa-bars"></i></div>
   </nav>
   
-  <!-- mobile drawer (no TurboIG button here either) -->
+  <!-- mobile drawer -->
   <div id="mobileDrawer" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-black/95 backdrop-blur-xl z-50 transform translate-x-full transition-transform duration-300 p-6 border-l border-yellow-600/40">
     <div class="flex justify-end"><i class="fas fa-times text-2xl cursor-pointer" id="closeMenu"></i></div>
     <div class="flex flex-col gap-6 mt-12 text-lg">
@@ -134,7 +132,7 @@
       </div>
     </section>
 
-    <!-- PORTFOLIO SECTION - High quality real-style placeholder images -->
+    <!-- PORTFOLIO SECTION -->
     <section id="portfolio" class="py-24 bg-black/40 px-6">
       <div class="text-center mb-12" data-aos="fade-up"><h2 class="text-4xl md:text-5xl font-bold">OUR <span class="text-yellow-500">CREATIONS</span></h2><p class="text-gray-400 mt-2">Premium gaming edits • thumbnails • bot UI • websites</p></div>
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 max-w-7xl mx-auto">
@@ -174,7 +172,7 @@
     <!-- TESTIMONIALS slider -->
     <section class="py-20 bg-black/40 px-6"><div class="max-w-6xl mx-auto text-center"><h2 class="text-4xl font-bold">Client <span class="text-yellow-500">Voices</span></h2><div class="swiper mySwiper mt-12 overflow-hidden"><div class="swiper-wrapper"><div class="swiper-slide bg-black/60 p-8 rounded-2xl backdrop-blur-sm"><i class="fas fa-star text-yellow-500"></i><i class="fas fa-star text-yellow-500"></i><i class="fas fa-star text-yellow-500"></i><i class="fas fa-star text-yellow-500"></i><i class="fas fa-star text-yellow-500"></i><p class="mt-4">"MODULOS delivered insane thumbnails! boosted my CTR massively."</p><h4 class="font-bold mt-4">— Rohan G.</h4></div><div class="swiper-slide bg-black/60 p-8 rounded-2xl"><i class="fas fa-star text-yellow-500"></i><i class="fas fa-star text-yellow-500"></i><i class="fas fa-star text-yellow-500"></i><i class="fas fa-star text-yellow-500"></i><i class="fas fa-star text-yellow-500"></i><p>"Discord bot + server setup was flawless. Highly recommend."</p><h4 class="font-bold mt-4">— Arya, Esports org</h4></div><div class="swiper-slide bg-black/60 p-8 rounded-2xl"><i class="fas fa-star text-yellow-500"></i><i class="fas fa-star text-yellow-500"></i><i class="fas fa-star text-yellow-500"></i><i class="fas fa-star text-yellow-500"></i><i class="fas fa-star text-yellow-500"></i><p>"Fast, professional editing & web dev. Premium quality!"</p><h4 class="font-bold mt-4">— Karan | Creator</h4></div></div><div class="swiper-pagination mt-6"></div></div></div></section>
 
-    <!-- ABOUT SECTION - ONLY HERE TurboIG button appears (founder Uvesh + content creator TurboIG) -->
+    <!-- ABOUT SECTION -->
     <section id="about" class="py-24 px-6 max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-center">
       <div data-aos="fade-right"><div class="w-64 h-64 rounded-full bg-gradient-to-tr from-yellow-600 to-black flex items-center justify-center border-4 border-yellow-500"><i class="fas fa-user-astronaut text-7xl text-yellow-400"></i></div></div>
       <div data-aos="fade-left">
@@ -182,36 +180,54 @@
         <p class="text-xl text-gray-300 mt-2">Founder of MODULOS AGENCY & Content Creator</p>
         <p class="mt-4 text-gray-400 leading-relaxed">I created MODULOS AGENCY to help gamers, creators, and businesses build premium digital identities with professional editing, development, branding, and gaming services. As a content creator myself (<span class="text-yellow-400">TurboIG</span>), I understand exactly what creators need to stand out.</p>
         <div class="flex gap-8 mt-8"><div><span class="text-yellow-400 text-3xl font-black">100+</span><p>Projects</p></div><div><span class="text-yellow-400 text-3xl font-black">24h</span><p>Fast Delivery</p></div><div><span class="text-yellow-400 text-3xl font-black">5⭐</span><p>Premium Quality</p></div></div>
-        <!-- Only TurboIG button here as requested -->
         <a href="https://tinyurl.com/TurboIGWeb" target="_blank" class="turboig-btn inline-flex items-center gap-3 px-6 py-3 rounded-full mt-8 text-black font-bold text-lg shadow-xl"><i class="fab fa-youtube text-2xl"></i> Explore TurboIG Content Creator</a>
       </div>
     </section>
 
-    <!-- ORDER FORM SECTION -->
+    <!-- ORDER FORM SECTION - COMPLETELY FIXED WORKING ORDER FORM NO FILE ATTACHMENT CONFLICT -->
     <section id="order" class="py-24 px-6 bg-black/60">
       <div class="max-w-4xl mx-auto bg-black/70 p-8 rounded-3xl border border-yellow-500/40 shadow-2xl">
         <h2 class="text-3xl font-bold text-center">Launch Your <span class="text-yellow-500">Project</span></h2>
         <p class="text-gray-400 text-center mb-6">Fill details & we'll reach out on WhatsApp instantly</p>
-        <form id="orderForm" class="mt-4 grid gap-5">
-          <input type="text" id="fullName" placeholder="Full Name *" class="p-3 rounded-xl w-full bg-black/80" required>
-          <input type="email" id="email" placeholder="Email Address *" class="p-3 rounded-xl" required>
-          <input type="tel" id="whatsapp" placeholder="WhatsApp Number (with country code) *" class="p-3 rounded-xl" required>
-          <select id="serviceType" class="p-3 rounded-xl">
-            <option value="Video Editing">🎬 Video Editing</option><option value="Thumbnail Design">🖼️ Thumbnail Design</option><option value="Reels Editing">📱 Reels Editing</option><option value="Logo & Branding">🎨 Logo & Branding</option><option value="Website Development">🌐 Website Development</option><option value="App Development">📲 App Development</option><option value="Discord Bot Development">🤖 Discord Bot Development</option><option value="Minecraft Server Setup">⛏️ Minecraft Setup</option><option value="GTA V Server Setup">🚗 GTA V Setup</option><option value="Voiceover / Dubbing">🎙️ Voiceover</option><option value="Script Writing">📝 Script Writing</option>
+        
+        <div class="mt-4 space-y-5">
+          <input type="text" id="fullName" placeholder="Full Name *" class="w-full">
+          <input type="email" id="email" placeholder="Email Address *" class="w-full">
+          <input type="tel" id="whatsapp" placeholder="WhatsApp Number with country code * (ex: +917736512393)" class="w-full">
+          
+          <select id="serviceType" class="w-full">
+            <option value="Video Editing">🎬 Video Editing</option>
+            <option value="Thumbnail Design">🖼️ Thumbnail Design</option>
+            <option value="Reels Editing">📱 Reels Editing</option>
+            <option value="Logo & Branding">🎨 Logo & Branding</option>
+            <option value="Website Development">🌐 Website Development</option>
+            <option value="App Development">📲 App Development</option>
+            <option value="Discord Bot Development">🤖 Discord Bot Development</option>
+            <option value="Minecraft Server Setup">⛏️ Minecraft Setup</option>
+            <option value="GTA V Server Setup">🚗 GTA V Setup</option>
+            <option value="Voiceover / Dubbing">🎙️ Voiceover</option>
+            <option value="Script Writing">📝 Script Writing</option>
           </select>
+          
           <div class="grid md:grid-cols-2 gap-4">
-            <input type="text" id="budget" placeholder="Budget (₹) *" class="p-3 rounded-xl" required>
-            <input type="text" id="deadline" placeholder="Deadline (days) *" class="p-3 rounded-xl" required>
+            <input type="text" id="budget" placeholder="Budget (₹) *" class="w-full">
+            <input type="text" id="deadline" placeholder="Deadline (days) *" class="w-full">
           </div>
-          <textarea id="projectDesc" rows="3" placeholder="Describe your project requirements in detail..." class="p-3 rounded-xl" required></textarea>
-          <div class="file-upload-label"><i class="fas fa-cloud-upload-alt text-yellow-500 mr-2"></i> Attach reference files (optional) <input type="file" id="fileUpload" class="hidden" multiple><span id="fileNameDisplay" class="block text-xs text-gray-400 mt-1"></span></div>
-          <button type="button" id="submitOrderBtn" class="bg-yellow-600 hover:bg-yellow-500 text-black font-bold py-4 rounded-full text-xl mt-4 transition-all flex items-center justify-center gap-2"><i class="fab fa-whatsapp"></i> Send via WhatsApp</button>
-          <p id="formFeedback" class="text-yellow-400 text-center"></p>
-        </form>
+          
+          <textarea id="projectDesc" rows="4" placeholder="Describe your project requirements in detail... *" class="w-full"></textarea>
+          
+          <!-- OPTIONAL NOTE - NO FILE INPUT TO AVOID ANY ISSUES -->
+          <div class="text-center text-gray-500 text-sm py-2">
+            <i class="fas fa-paperclip mr-1"></i> Reference files can be shared on WhatsApp after order
+          </div>
+          
+          <button id="submitOrderBtn" class="bg-yellow-600 hover:bg-yellow-500 text-black font-bold py-4 rounded-full text-xl mt-2 transition-all flex items-center justify-center gap-3 w-full shadow-xl"><i class="fab fa-whatsapp text-2xl"></i> Send Order via WhatsApp</button>
+          <div id="formFeedback" class="text-center text-sm mt-2"></div>
+        </div>
       </div>
     </section>
 
-    <!-- CONTACT SECTION - Domain email + Discord + Instagram -->
+    <!-- CONTACT SECTION -->
     <section id="contact" class="py-20 px-6 border-t border-yellow-600/20">
       <div class="max-w-5xl mx-auto text-center">
         <h2 class="text-4xl font-bold mb-10">Get <span class="text-yellow-500">Connected</span></h2>
@@ -233,22 +249,124 @@
 
   <script>
     // loader
-    let width=0; const prog=setInterval(()=>{width+=10; document.getElementById('progressFill').style.width=width+'%'; if(width>=100){clearInterval(prog); setTimeout(()=>{document.getElementById('loader').style.opacity='0'; setTimeout(()=>{document.getElementById('loader').style.display='none';},800);},200);}},80);
+    let width = 0;
+    const prog = setInterval(() => {
+      width += 10;
+      document.getElementById('progressFill').style.width = width + '%';
+      if (width >= 100) {
+        clearInterval(prog);
+        setTimeout(() => {
+          document.getElementById('loader').style.opacity = '0';
+          setTimeout(() => { document.getElementById('loader').style.display = 'none'; }, 800);
+        }, 200);
+      }
+    }, 80);
+    
     // particles
-    const canvas=document.getElementById('particles-canvas'), ctx=canvas.getContext('2d'); let particles=[]; function resize(){canvas.width=window.innerWidth; canvas.height=window.innerHeight;} window.addEventListener('resize',resize); resize(); for(let i=0;i<120;i++){particles.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, radius:Math.random()*2+1, dx:(Math.random()-0.5)*0.6, dy:(Math.random()-0.5)*0.4, color:`rgba(250,204,21,${Math.random()*0.4+0.1})`});} function animateParticles(){requestAnimationFrame(animateParticles); ctx.clearRect(0,0,canvas.width,canvas.height); particles.forEach(p=>{p.x+=p.dx; p.y+=p.dy; if(p.x<0||p.x>canvas.width) p.dx*=-1; if(p.y<0||p.y>canvas.height) p.dy*=-1; ctx.beginPath(); ctx.arc(p.x,p.y,p.radius,0,Math.PI*2); ctx.fillStyle=p.color; ctx.fill();});} animateParticles();
-    // cursor
-    const dot=document.querySelector('.cursor-dot'), outline=document.querySelector('.cursor-outline'); document.addEventListener('mousemove',(e)=>{dot.style.transform=`translate(${e.clientX-3}px, ${e.clientY-3}px)`; outline.style.transform=`translate(${e.clientX-16}px, ${e.clientY-16}px)`;});
-    AOS.init({duration:800, once:true}); GSAP.fromTo("#home h1",{opacity:0,y:60},{opacity:1,y:0,duration:1.2,delay:0.4});
+    const canvas = document.getElementById('particles-canvas'), ctx = canvas.getContext('2d');
+    let particles = [];
+    function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    window.addEventListener('resize', resize);
+    resize();
+    for (let i = 0; i < 120; i++) {
+      particles.push({
+        x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+        radius: Math.random() * 2 + 1, dx: (Math.random() - 0.5) * 0.6, dy: (Math.random() - 0.5) * 0.4,
+        color: `rgba(250,204,21,${Math.random() * 0.4 + 0.1})`
+      });
+    }
+    function animateParticles() {
+      requestAnimationFrame(animateParticles);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.x += p.dx; p.y += p.dy;
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = p.color; ctx.fill();
+      });
+    }
+    animateParticles();
+    
+    // custom cursor
+    const dot = document.querySelector('.cursor-dot'), outline = document.querySelector('.cursor-outline');
+    document.addEventListener('mousemove', (e) => {
+      dot.style.transform = `translate(${e.clientX - 3}px, ${e.clientY - 3}px)`;
+      outline.style.transform = `translate(${e.clientX - 16}px, ${e.clientY - 16}px)`;
+    });
+    
+    AOS.init({ duration: 800, once: true });
+    GSAP.fromTo("#home h1", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 1.2, delay: 0.4 });
+    
     // mobile menu
-    const menuBtn=document.getElementById('menuBtn'), drawer=document.getElementById('mobileDrawer'), closeMenu=document.getElementById('closeMenu'); menuBtn.onclick=()=>{drawer.classList.remove('translate-x-full');}; closeMenu.onclick=()=>{drawer.classList.add('translate-x-full');}; document.querySelectorAll('#mobileDrawer a').forEach(a=>a.addEventListener('click',()=>drawer.classList.add('translate-x-full')));
+    const menuBtn = document.getElementById('menuBtn'), drawer = document.getElementById('mobileDrawer'), closeMenu = document.getElementById('closeMenu');
+    menuBtn.onclick = () => { drawer.classList.remove('translate-x-full'); };
+    closeMenu.onclick = () => { drawer.classList.add('translate-x-full'); };
+    document.querySelectorAll('#mobileDrawer a').forEach(a => a.addEventListener('click', () => drawer.classList.add('translate-x-full')));
+    
     // modal
-    const modal=document.getElementById('imageModal'), modalImg=document.getElementById('modalImg'); document.querySelectorAll('.portfolio-item').forEach(item=>{item.addEventListener('click',()=>{const imgSrc=item.getAttribute('data-img')||item.querySelector('img').src; modalImg.src=imgSrc; modal.style.display='flex';});}); modal.querySelector('span').onclick=()=>modal.style.display='none'; modal.onclick=(e)=>{if(e.target===modal) modal.style.display='none';};
+    const modal = document.getElementById('imageModal'), modalImg = document.getElementById('modalImg');
+    document.querySelectorAll('.portfolio-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const imgSrc = item.getAttribute('data-img') || item.querySelector('img').src;
+        modalImg.src = imgSrc; modal.style.display = 'flex';
+      });
+    });
+    modal.querySelector('span').onclick = () => modal.style.display = 'none';
+    modal.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
+    
     // swiper
-    new Swiper('.mySwiper',{loop:true, autoplay:{delay:3000}, pagination:{el:'.swiper-pagination',clickable:true}, spaceBetween:30});
-    // file upload
-    const fileInput = document.querySelector('#fileUpload'); const fileNameSpan = document.getElementById('fileNameDisplay'); fileInput.addEventListener('change', function(e) { if(this.files.length>0) fileNameSpan.innerText = `${this.files.length} file(s) selected`; else fileNameSpan.innerText=''; }); document.querySelector('.file-upload-label').addEventListener('click', () => fileInput.click());
-    // whatsapp order
-    document.getElementById('submitOrderBtn').addEventListener('click', function() { const name = document.getElementById('fullName').value.trim(); const email = document.getElementById('email').value.trim(); const whatsapp = document.getElementById('whatsapp').value.trim(); const service = document.getElementById('serviceType').value; const budget = document.getElementById('budget').value.trim(); const deadline = document.getElementById('deadline').value.trim(); const description = document.getElementById('projectDesc').value.trim(); if(!name || !email || !whatsapp || !budget || !deadline || !description) { document.getElementById('formFeedback').innerHTML = '⚠️ Please fill all required fields'; return; } let message = `🟡 *NEW ORDER - MODULOS AGENCY* 🟡%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*WhatsApp:* ${whatsapp}%0A*Service:* ${service}%0A*Budget:* ₹${budget}%0A*Deadline:* ${deadline} days%0A*Details:* ${description}%0A%0A🔹 Via modulosagency.in`; window.open(`https://wa.me/917736512393?text=${message}`, '_blank'); document.getElementById('formFeedback').innerHTML = '✅ Redirecting to WhatsApp...'; setTimeout(()=>{document.getElementById('formFeedback').innerHTML='';},4000); });
+    new Swiper('.mySwiper', { loop: true, autoplay: { delay: 3000 }, pagination: { el: '.swiper-pagination', clickable: true }, spaceBetween: 30 });
+    
+    // FIXED WORKING WHATSAPP ORDER BUTTON - NO DEPENDENCY ON FILE INPUT
+    document.getElementById('submitOrderBtn').addEventListener('click', function(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const whatsapp = document.getElementById('whatsapp').value.trim();
+      const service = document.getElementById('serviceType').value;
+      const budget = document.getElementById('budget').value.trim();
+      const deadline = document.getElementById('deadline').value.trim();
+      const description = document.getElementById('projectDesc').value.trim();
+      
+      const feedback = document.getElementById('formFeedback');
+      
+      if (!name || !email || !whatsapp || !budget || !deadline || !description) {
+        feedback.innerHTML = '⚠️ Please fill all required fields (Name, Email, WhatsApp, Budget, Deadline, Description)';
+        feedback.style.color = '#facc15';
+        return;
+      }
+      
+      const phoneRegex = /^\+?[0-9]{10,15}$/;
+      if (!phoneRegex.test(whatsapp.replace(/\s/g, ''))) {
+        feedback.innerHTML = '⚠️ Enter valid WhatsApp number with country code (e.g., +917736512393)';
+        feedback.style.color = '#facc15';
+        return;
+      }
+      
+      if (!email.includes('@') || !email.includes('.')) {
+        feedback.innerHTML = '⚠️ Enter a valid email address';
+        feedback.style.color = '#facc15';
+        return;
+      }
+      
+      // Create proper WhatsApp message
+      const message = `🟡 *NEW ORDER - MODULOS AGENCY* 🟡%0A%0A*👤 Name:* ${encodeURIComponent(name)}%0A*📧 Email:* ${encodeURIComponent(email)}%0A*📞 WhatsApp:* ${encodeURIComponent(whatsapp)}%0A*🎯 Service:* ${encodeURIComponent(service)}%0A*💰 Budget:* ₹${encodeURIComponent(budget)}%0A*⏱️ Deadline:* ${encodeURIComponent(deadline)} days%0A*📝 Project Details:* ${encodeURIComponent(description)}%0A%0A🔹 *Order sent via modulosagency.in* 🔹`;
+      
+      const whatsappURL = `https://wa.me/917736512393?text=${message}`;
+      
+      feedback.innerHTML = '✅ Redirecting to WhatsApp... Please send the message to confirm your order!';
+      feedback.style.color = '#4ade80';
+      
+      setTimeout(() => {
+        window.open(whatsappURL, '_blank');
+      }, 500);
+      
+      setTimeout(() => {
+        feedback.innerHTML = '';
+      }, 8000);
+    });
   </script>
 </body>
 </html>
