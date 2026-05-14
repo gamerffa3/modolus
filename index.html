@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>MODULOS | YouTube Producer & Creative Director — Next-Gen Production Engine</title>
-  <!-- Tailwind + Google Fonts -->
+  <title>MODULOS | Next-Gen Production Engine — YouTube Producer & Creative Agency</title>
+  <!-- Tailwind + Fonts -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -22,16 +22,16 @@
       overflow-x: hidden;
       color: #ededed;
     }
-    /* custom cursor premium */
+    /* custom cursor premium (exactly like previous) */
     @media (min-width: 768px) {
       .cursor-dot, .cursor-outline { pointer-events: none; position: fixed; top: 0; left: 0; transform: translate(-50%, -50%); border-radius: 50%; z-index: 9999; transition: all 0.1s ease; }
       .cursor-dot { width: 6px; height: 6px; background-color: #f5b042; }
-      .cursor-outline { width: 42px; height: 42px; border: 2px solid rgba(245,176,66,0.5); }
+      .cursor-outline { width: 42px; height: 42px; border: 2px solid rgba(245,176,66,0.5); transition: all 0.15s ease-out; }
       body { cursor: none; }
     }
     @media (max-width: 767px) { .cursor-dot, .cursor-outline { display: none; } }
     
-    /* particle canvas */
+    /* particles canvas */
     #particles-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
     html { scroll-behavior: smooth; }
     
@@ -45,10 +45,6 @@
     .glass-premium:hover {
       border-color: rgba(245,176,66,0.6);
       box-shadow: 0 10px 30px -5px rgba(0,0,0,0.6), 0 0 0 1px rgba(245,176,66,0.2);
-    }
-    .neon-border-glow {
-      box-shadow: 0 0 5px rgba(245,176,66,0.3);
-      transition: all 0.25s;
     }
     .gradient-text {
       background: linear-gradient(135deg, #fff 15%, #f5b042 55%, #e8921a 100%);
@@ -69,22 +65,14 @@
       padding: 0.4rem 1.2rem;
       font-size: 0.8rem;
       font-weight: 500;
+      transition: all 0.2s;
     }
-    .skill-tag:hover { background: rgba(245,176,66,0.2); border-color: #f5b042; }
+    .skill-tag:hover { background: rgba(245,176,66,0.2); border-color: #f5b042; transform: translateY(-2px); }
     .role-badge {
       background: rgba(255,255,255,0.03);
       border-left: 3px solid #f5b042;
       padding: 0.5rem 1.2rem;
       font-weight: 600;
-      letter-spacing: -0.2px;
-    }
-    .tech-badge {
-      background: #111111;
-      border-radius: 20px;
-      padding: 0.3rem 1rem;
-      font-family: monospace;
-      font-size: 0.75rem;
-      border: 0.5px solid #2a2a2a;
     }
     .fake-ui {
       font-family: 'Space Grotesk', monospace;
@@ -93,7 +81,6 @@
       padding: 0.75rem 1.2rem;
       border-left: 3px solid #f5b042;
     }
-    /* scrollbar */
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: #0a0a0a; }
     ::-webkit-scrollbar-thumb { background: #f5b042; border-radius: 10px; }
@@ -103,6 +90,9 @@
       height: 210px;
       object-fit: cover;
       transition: transform 0.5s cubic-bezier(0.2,0.9,0.4,1.1);
+    }
+    .portfolio-card {
+      transition: all 0.3s ease;
     }
     .portfolio-card:hover .portfolio-img {
       transform: scale(1.04);
@@ -157,6 +147,7 @@
       padding: 0.8rem 1rem;
       color: white;
       outline: none;
+      transition: 0.2s;
     }
     input:focus, textarea:focus, select:focus {
       border-color: #f5b042;
@@ -175,16 +166,17 @@
       align-items: center;
       justify-content: center;
       box-shadow: 0 6px 20px rgba(37,211,102,0.3);
+      transition: transform 0.2s;
     }
-    .floating-wa:hover { transform: scale(1.07); }
-    .social-icon-circle {
-      transition: all 0.2s ease;
-    }
-    .social-icon-circle:hover {
-      transform: translateY(-4px);
-      filter: drop-shadow(0 4px 10px rgba(245,176,66,0.4));
-    }
+    .floating-wa:hover { transform: scale(1.08); }
+    .social-icon-circle { transition: all 0.2s ease; }
+    .social-icon-circle:hover { transform: translateY(-5px); filter: drop-shadow(0 4px 10px rgba(245,176,66,0.5)); }
     @media (max-width: 640px) { .portfolio-img { height: 150px; } }
+    .omnisphere-card {
+      background: radial-gradient(circle at 10% 20%, rgba(245,176,66,0.05), rgba(0,0,0,0.8));
+      transition: all 0.3s;
+    }
+    .omnisphere-card:hover { transform: translateY(-8px); background: radial-gradient(circle at 10% 20%, rgba(245,176,66,0.12), #030303); border-color: #f5b042; }
   </style>
 </head>
 <body>
@@ -199,7 +191,6 @@
   <div class="cursor-dot"></div>
   <div class="cursor-outline"></div>
 
-  <!-- premium navbar with Aktivus vibe -->
   <nav class="fixed top-0 left-0 w-full z-50 glass-premium py-3 px-6 md:px-12 flex justify-between items-center backdrop-blur-xl border-b border-[#f5b042]/10">
     <div class="flex items-center gap-2">
       <span class="text-2xl md:text-3xl font-black gradient-text">MODULOS</span>
@@ -207,9 +198,9 @@
     </div>
     <div class="hidden md:flex items-center gap-7 text-sm font-semibold">
       <a href="#home" class="hover:text-[#f5b042] transition">HOME</a>
-      <a href="#core" class="hover:text-[#f5b042] transition">CORE</a>
-      <a href="#ecosystem" class="hover:text-[#f5b042] transition">ECOSYSTEM</a>
+      <a href="#omnisphere" class="hover:text-[#f5b042] transition">OMNISPHERE</a>
       <a href="#portfolio" class="hover:text-[#f5b042] transition">WORK</a>
+      <a href="#ecosystem" class="hover:text-[#f5b042] transition">PIPELINE</a>
       <a href="#faq" class="hover:text-[#f5b042] transition">FAQ</a>
     </div>
     <div class="hidden md:block">
@@ -221,30 +212,29 @@
   <div id="mobileDrawer" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-black/95 backdrop-blur-xl z-50 transform translate-x-full transition-transform duration-300 p-6 border-l border-[#f5b042]/30">
     <div class="flex justify-end mb-8"><i class="fas fa-times text-2xl text-gray-300 cursor-pointer" id="closeMenu"></i></div>
     <div class="flex flex-col gap-6 text-base">
-      <a href="#home" class="hover:text-[#f5b042] transition">HOME</a><a href="#core" class="hover:text-[#f5b042] transition">CORE</a>
-      <a href="#ecosystem" class="hover:text-[#f5b042] transition">ECOSYSTEM</a><a href="#portfolio" class="hover:text-[#f5b042] transition">WORK</a>
+      <a href="#home" class="hover:text-[#f5b042] transition">HOME</a><a href="#omnisphere" class="hover:text-[#f5b042] transition">OMNISPHERE</a>
+      <a href="#portfolio" class="hover:text-[#f5b042] transition">WORK</a><a href="#ecosystem" class="hover:text-[#f5b042] transition">PIPELINE</a>
       <a href="#faq" class="hover:text-[#f5b042] transition">FAQ</a><hr class="border-gray-700">
       <a href="#hire" class="bg-[#f5b042] text-black font-bold text-center py-2 rounded-full">HIRE ME</a>
     </div>
   </div>
 
   <main class="relative z-10">
-    <!-- HERO: exactly Aktivus inspired: 100% + unleash + pipeline engine + #1 Ranked -->
+    <!-- HERO SECTION (Aktivus style) with GSAP entrance -->
     <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-24 pb-20 relative">
-      <div class="max-w-6xl mx-auto text-center" data-aos="fade-up">
-        <div class="text-7xl md:text-9xl font-black gradient-text opacity-90">100%</div>
+      <div class="max-w-6xl mx-auto text-center" data-aos="fade-up" data-aos-duration="1000">
+        <div class="text-7xl md:text-9xl font-black gradient-text opacity-90 animate-pulse">100%</div>
         <div class="text-2xl md:text-3xl font-bold tracking-wider mt-2">UNLEASH THE POTENTIAL</div>
         <div class="mt-4 text-4xl md:text-6xl font-black gradient-text">MODULOS Pipeline Engine</div>
         <div class="inline-flex items-center gap-2 bg-[#f5b042]/10 backdrop-blur-sm px-4 py-1.5 rounded-full border border-[#f5b042]/30 text-[#f5b042] text-sm mt-5"><i class="fas fa-crown text-xs"></i> #1 Ranked YouTube Producer</div>
         <p class="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto mt-6">The new standard in media production. Ditch the fragmented workflows. MODULOS is an elite, all-in-one production engine built for high-end creators.</p>
         
-        <!-- Core Infrastructure Unlocks block (aktivus style) -->
-        <div class="mt-12 glass-premium rounded-2xl p-5 max-w-3xl mx-auto">
+        <div class="mt-12 glass-premium rounded-2xl p-5 max-w-3xl mx-auto neon-border-glow">
           <div class="text-xs text-[#f5b042] tracking-widest">CORE INFRASTRUCTURE UNLOCKS</div>
           <div class="flex flex-wrap justify-between items-center gap-4 mt-3">
             <div><span class="text-gray-400 text-sm">Global Release Schedule</span><div class="text-green-400 text-xs">Systems Nominal</div></div>
             <div class="text-2xl md:text-3xl font-mono font-bold" id="countdownDisplay">21d : 00h : 33m : 30s</div>
-            <div class="text-right"><span class="text-[#f5b042] text-sm">Cloud Node // Active</span><div class="text-gray-400 text-xs flex items-center gap-1"><i class="fas fa-circle text-[8px] text-green-500"></i> REC</div></div>
+            <div class="text-right"><span class="text-[#f5b042] text-sm">Cloud Node // Active</span><div class="text-gray-400 text-xs flex items-center gap-1"><i class="fas fa-circle text-[8px] text-green-500 animate-pulse"></i> REC</div></div>
           </div>
           <div class="border-t border-[#f5b042]/20 mt-4 pt-3 flex flex-wrap justify-between text-xs font-mono text-gray-400">
             <span>01:00:00:00 01:00:30:00 - 22 DAYS</span><span>V1</span><span>A001_C014.ARRI</span><span>VFX_Comp_v4</span><span>A1</span>
@@ -253,70 +243,86 @@
       </div>
     </section>
 
-    <!-- Unified Review Hub + ACES integration -->
-    <section id="core" class="py-16 px-6 max-w-6xl mx-auto">
-      <div class="glass-premium rounded-2xl p-6 md:p-8 border-l-4 border-[#f5b042]" data-aos="fade-right">
-        <h2 class="text-3xl md:text-4xl font-bold gradient-text">Unified Review Hub</h2>
-        <p class="text-gray-300 mt-2 text-lg">Eliminate scattered feedback. Frame-accurate annotations, version control, and real-time client approvals natively integrated into your ACES color workspace.</p>
-      </div>
-    </section>
-
-    <!-- End-To-End Pipeline : Aktivus Ecosystem 4 steps exactly -->
-    <section id="ecosystem" class="py-20 px-6 bg-gradient-to-b from-black/20 to-black/40">
-      <div class="max-w-7xl mx-auto text-center mb-12" data-aos="fade-up">
-        <div class="text-[#f5b042] text-sm font-mono tracking-widest">END-TO-END PIPELINE</div>
-        <h2 class="text-4xl md:text-5xl font-bold mt-2 gradient-text">The MODULOS Ecosystem</h2>
-        <p class="text-gray-400 max-w-2xl mx-auto mt-3">A seamless flow of creative energy. Every stage of production, unified in one highly optimized, cloud-native platform.</p>
-      </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-        <div class="glass-premium p-5 rounded-xl" data-aos="fade-up"><div class="text-3xl mb-3">1</div><h3 class="text-xl font-bold">Pre-Production</h3><p class="text-gray-400 text-sm mt-2">Centralize your vision. Live script breakdowns, dynamic storyboarding, and smart call sheets that adapt in real-time.</p></div>
-        <div class="glass-premium p-5 rounded-xl" data-aos="fade-up" data-aos-delay="80"><div class="text-3xl mb-3">2</div><h3 class="text-xl font-bold">Production</h3><p class="text-gray-400 text-sm mt-2">Zero-wait dailies. Securely ingest RAW assets directly from the camera card to the cloud, generating lightweight editing proxies instantly.</p></div>
-        <div class="glass-premium p-5 rounded-xl" data-aos="fade-up" data-aos-delay="160"><div class="text-3xl mb-3">3</div><h3 class="text-xl font-bold">Post-Production</h3><p class="text-gray-400 text-sm mt-2">Uncompromising power. Handle heavy VFX roundtrips, node-based HDR grading, and spatial audio mixing without stressing your local hardware.</p></div>
-        <div class="glass-premium p-5 rounded-xl" data-aos="fade-up" data-aos-delay="240"><div class="text-3xl mb-3">4</div><h3 class="text-xl font-bold">Publishing</h3><p class="text-gray-400 text-sm mt-2">Ship faster. Automated multi-format rendering, strict QC checks, and encrypted client handoffs with a single click.</p></div>
-      </div>
-    </section>
-
-    <!-- Portfolio / Work (premium edits) -->
-    <section id="portfolio" class="py-20 px-6">
-      <div class="max-w-7xl mx-auto text-center mb-12" data-aos="fade-up"><span class="text-[#f5b042] text-sm font-mono">✦ ASSET SHOWCASE ✦</span><h2 class="text-4xl md:text-5xl font-bold gradient-text">Production Portfolio</h2></div>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <div class="portfolio-card glass-premium rounded-xl overflow-hidden cursor-pointer" data-type="image" data-src="https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=600"><img src="https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=600" class="portfolio-img"><div class="p-2 text-center text-xs text-[#f5b042]">Cinematic Grade</div></div>
-        <div class="portfolio-card glass-premium rounded-xl overflow-hidden cursor-pointer" data-type="image" data-src="https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=600"><img src="https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=600" class="portfolio-img"><div class="p-2 text-center text-xs text-[#f5b042]">Esports Visual</div></div>
-        <div class="portfolio-card glass-premium rounded-xl overflow-hidden cursor-pointer" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-game-streamer-with-live-chat-32805-large.mp4"><div class="relative"><video class="portfolio-img" preload="metadata"><source src="https://assets.mixkit.co/videos/preview/mixkit-game-streamer-with-live-chat-32805-large.mp4"></video><div class="absolute inset-0 flex items-center justify-center bg-black/40"><i class="fas fa-play-circle text-4xl text-[#f5b042]"></i></div></div><div class="p-2 text-center text-xs text-[#f5b042]">Gameplay Edit</div></div>
-        <div class="portfolio-card glass-premium rounded-xl overflow-hidden cursor-pointer" data-type="image" data-src="https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=600"><img src="https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=600" class="portfolio-img"><div class="p-2 text-center text-xs text-[#f5b042]">Motion Design</div></div>
-        <div class="portfolio-card glass-premium rounded-xl overflow-hidden cursor-pointer" data-type="video" data-src="https://assets.mixkit.co/videos/preview/mixkit-gaming-setup-with-neon-lights-34420-large.mp4"><div class="relative"><video class="portfolio-img" preload="metadata"><source src="https://assets.mixkit.co/videos/preview/mixkit-gaming-setup-with-neon-lights-34420-large.mp4"></video><div class="absolute inset-0 flex items-center justify-center bg-black/40"><i class="fas fa-play-circle text-4xl text-[#f5b042]"></i></div></div><div class="p-2 text-center text-xs text-[#f5b042]">Stream Assets</div></div>
-        <div class="portfolio-card glass-premium rounded-xl overflow-hidden cursor-pointer" data-type="image" data-src="https://images.pexels.com/photos/2115257/pexels-photo-2115257.jpeg?auto=compress&cs=tinysrgb&w=600"><img src="https://images.pexels.com/photos/2115257/pexels-photo-2115257.jpeg?auto=compress&cs=tinysrgb&w=600" class="portfolio-img"><div class="p-2 text-center text-xs text-[#f5b042]">Minecraft Pipeline</div></div>
-      </div>
-    </section>
-
-    <!-- FAQ - exactly 4 questions as Aktivus -->
-    <section id="faq" class="py-20 px-6 bg-black/30">
-      <div class="max-w-4xl mx-auto" data-aos="fade-up">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 gradient-text">Frequently Asked Questions</h2>
-        <div class="space-y-6">
-          <div class="glass-premium p-5 rounded-xl"><h3 class="text-lg font-bold">How does MODULOS handle massive RAW files remotely?</h3><p class="text-gray-300 text-sm mt-1">As a premium media production company, we use a hybrid proxy-first approach. You edit with lightweight, cloud-streamed proxies instantly, while the high-res RAW files sync securely in the background. The final render happens on our cloud nodes, not your machine.</p></div>
-          <div class="glass-premium p-5 rounded-xl"><h3 class="text-lg font-bold">Can we invite external clients for review without them seeing the whole project?</h3><p class="text-gray-300 text-sm mt-1">Absolutely. Our media production company allows you to generate secure, password-protected review links for specific timelines. Clients get a clean, branded interface to leave frame-specific comments—no account required.</p></div>
-          <div class="glass-premium p-5 rounded-xl"><h3 class="text-lg font-bold">Does it replace Premiere Pro or DaVinci Resolve?</h3><p class="text-gray-300 text-sm mt-1">It supercharges them. While MODULOS features a robust web-based editor for quick cuts, our company offers deep integration via plugins for Premiere Pro, Final Cut, and Resolve. Sync timelines, markers, and media effortlessly.</p></div>
-          <div class="glass-premium p-5 rounded-xl"><h3 class="text-lg font-bold">What about IP security?</h3><p class="text-gray-300 text-sm mt-1">We take it seriously. MODULOS employs AES-256 encryption at rest and in transit, enterprise-grade SSO, and forensic watermarking. Your unreleased content is locked down tighter than standard company practices.</p></div>
+    <!-- MODULOS OMNISPHERE (big agency section) -->
+    <section id="omnisphere" class="py-24 px-6 bg-gradient-to-b from-black via-[#050505] to-black">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-14" data-aos="fade-up">
+          <span class="text-[#f5b042] text-sm font-mono tracking-widest">✦ THE FULL SPECTRUM ✦</span>
+          <h2 class="text-4xl md:text-6xl font-black mt-2 gradient-text">MODULOS Omnisphere</h2>
+          <p class="text-gray-400 max-w-2xl mx-auto mt-3">One ecosystem. Infinite possibilities. We don't just edit — we engineer digital excellence across every medium.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="omnisphere-card glass-premium rounded-2xl p-6 text-center border border-[#f5b042]/20" data-aos="flip-left"><div class="w-16 h-16 mx-auto rounded-full bg-[#f5b042]/10 flex items-center justify-center mb-4"><i class="fas fa-film text-3xl text-[#f5b042]"></i></div><h3 class="text-xl font-bold">Cinematic Editing</h3><p class="text-gray-400 text-sm mt-2">Hollywood-grade storytelling, color grading, VFX, sound design — frame perfect delivery.</p></div>
+          <div class="omnisphere-card glass-premium rounded-2xl p-6 text-center border border-[#f5b042]/20" data-aos="flip-left" data-aos-delay="100"><div class="w-16 h-16 mx-auto rounded-full bg-[#f5b042]/10 flex items-center justify-center mb-4"><i class="fas fa-palette text-3xl text-[#f5b042]"></i></div><h3 class="text-xl font-bold">Design & Branding</h3><p class="text-gray-400 text-sm mt-2">Thumbnails, motion graphics, visual identity — every pixel engineered for impact.</p></div>
+          <div class="omnisphere-card glass-premium rounded-2xl p-6 text-center border border-[#f5b042]/20" data-aos="flip-left" data-aos-delay="200"><div class="w-16 h-16 mx-auto rounded-full bg-[#f5b042]/10 flex items-center justify-center mb-4"><i class="fas fa-globe text-3xl text-[#f5b042]"></i></div><h3 class="text-xl font-bold">Web Apps & Platforms</h3><p class="text-gray-400 text-sm mt-2">Custom websites, dashboards, interactive tools — full-stack development for creators.</p></div>
+          <div class="omnisphere-card glass-premium rounded-2xl p-6 text-center border border-[#f5b042]/20" data-aos="flip-left" data-aos-delay="300"><div class="w-16 h-16 mx-auto rounded-full bg-[#f5b042]/10 flex items-center justify-center mb-4"><i class="fas fa-gamepad text-3xl text-[#f5b042]"></i></div><h3 class="text-xl font-bold">Game Setups & Servers</h3><p class="text-gray-400 text-sm mt-2">Minecraft networks, Discord bots, gaming infrastructure — turnkey server solutions.</p></div>
+        </div>
+        <div class="mt-12 text-center" data-aos="zoom-in">
+          <div class="inline-flex flex-wrap justify-center gap-4">
+            <span class="skill-tag"><i class="fas fa-check-circle text-[#f5b042] mr-1"></i> Unreal Engine</span>
+            <span class="skill-tag"><i class="fas fa-check-circle text-[#f5b042] mr-1"></i> Adobe Creative Cloud</span>
+            <span class="skill-tag"><i class="fas fa-check-circle text-[#f5b042] mr-1"></i> DaVinci Resolve</span>
+            <span class="skill-tag"><i class="fas fa-check-circle text-[#f5b042] mr-1"></i> React/Node Fullstack</span>
+            <span class="skill-tag"><i class="fas fa-check-circle text-[#f5b042] mr-1"></i> Cloud Proxy Pipelines</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- The Vision Quote (exactly like Aktivus) -->
-    <section class="py-16 px-6 max-w-5xl mx-auto text-center">
-      <div class="fake-ui" data-aos="zoom-in">
-        <i class="fas fa-quote-left text-[#f5b042] text-2xl mb-3 inline-block"></i>
-        <p class="text-xl md:text-2xl italic text-gray-200">"The industry is evolving, but our tools are stuck in the past. We built MODULOS to tear down the silos between on-set crews, post houses, and clients. This is the new baseline for high-end production."</p>
-        <p class="text-[#f5b042] font-bold mt-4 tracking-wide">— The MODULOS Vision</p>
+    <!-- PORTFOLIO SECTION: uses your actual root files -->
+    <section id="portfolio" class="py-20 px-6 bg-black/40">
+      <div class="max-w-7xl mx-auto text-center mb-12" data-aos="fade-up"><span class="text-[#f5b042] text-sm font-mono">✦ ASSET SHOWCASE ✦</span><h2 class="text-4xl md:text-5xl font-bold gradient-text">Production Portfolio</h2><p class="text-gray-400 mt-2">thumbnails • cinematic edits • motion systems</p></div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="portfolio-card glass-premium rounded-xl overflow-hidden cursor-pointer" data-type="image" data-src="thumbnail1.png"><img src="thumbnail1.png" class="portfolio-img" alt="Thumbnail 1" onerror="this.src='https://placehold.co/600x400/1a1a1a/f5b042?text=MODULOS+asset'"><div class="p-2 text-center text-xs text-[#f5b042]">Gaming Thumbnail</div></div>
+        <div class="portfolio-card glass-premium rounded-xl overflow-hidden cursor-pointer" data-type="image" data-src="thumbnail2.png"><img src="thumbnail2.png" class="portfolio-img" alt="Thumbnail 2" onerror="this.src='https://placehold.co/600x400/1a1a1a/f5b042?text=MODULOS+asset'"><div class="p-2 text-center text-xs text-[#f5b042]">Esports Design</div></div>
+        <div class="portfolio-card glass-premium rounded-xl overflow-hidden cursor-pointer" data-type="image" data-src="thumbnail3.png"><img src="thumbnail3.png" class="portfolio-img" alt="Thumbnail 3" onerror="this.src='https://placehold.co/600x400/1a1a1a/f5b042?text=MODULOS+asset'"><div class="p-2 text-center text-xs text-[#f5b042]">Viral Cover</div></div>
+        <div class="portfolio-card glass-premium rounded-xl overflow-hidden cursor-pointer" data-type="image" data-src="thumbnail4.jpg"><img src="thumbnail4.jpg" class="portfolio-img" alt="Thumbnail 4" onerror="this.src='https://placehold.co/600x400/1a1a1a/f5b042?text=MODULOS+asset'"><div class="p-2 text-center text-xs text-[#f5b042]">Premium Design</div></div>
+        <div class="portfolio-card glass-premium rounded-xl overflow-hidden cursor-pointer" data-type="image" data-src="thumbnail5.jpg"><img src="thumbnail5.jpg" class="portfolio-img" alt="Thumbnail 5" onerror="this.src='https://placehold.co/600x400/1a1a1a/f5b042?text=MODULOS+asset'"><div class="p-2 text-center text-xs text-[#f5b042]">Creative Asset</div></div>
+        <div class="portfolio-card glass-premium rounded-xl overflow-hidden cursor-pointer" data-type="video" data-src="video1.mp4"><div class="relative"><video class="portfolio-img" preload="metadata"><source src="video1.mp4" type="video/mp4"></video><div class="absolute inset-0 flex items-center justify-center bg-black/40"><i class="fas fa-play-circle text-4xl text-[#f5b042]"></i></div></div><div class="p-2 text-center text-xs text-[#f5b042]">Video Edit 1</div></div>
+        <div class="portfolio-card glass-premium rounded-xl overflow-hidden cursor-pointer" data-type="video" data-src="video2.mp4"><div class="relative"><video class="portfolio-img" preload="metadata"><source src="video2.mp4" type="video/mp4"></video><div class="absolute inset-0 flex items-center justify-center bg-black/40"><i class="fas fa-play-circle text-4xl text-[#f5b042]"></i></div></div><div class="p-2 text-center text-xs text-[#f5b042]">Video Edit 2</div></div>
+        <div class="portfolio-card glass-premium rounded-xl overflow-hidden cursor-pointer" data-type="image" data-src="thumbnail1.png"><img src="thumbnail1.png" class="portfolio-img" alt="extra" onerror="this.src='https://placehold.co/600x400/1a1a1a/f5b042?text=MODULOS'"><div class="p-2 text-center text-xs text-[#f5b042]">Thumbnail Master</div></div>
       </div>
     </section>
 
-    <!-- HIRE / CONTACT (no pricing tables, only producer consultation) with updated socials (IG + Discord) -->
+    <!-- PIPELINE ECOSYSTEM (4 steps) -->
+    <section id="ecosystem" class="py-20 px-6 bg-gradient-to-b from-black/20 to-black/40">
+      <div class="max-w-7xl mx-auto text-center mb-12" data-aos="fade-up">
+        <div class="text-[#f5b042] text-sm font-mono tracking-widest">END-TO-END PIPELINE</div>
+        <h2 class="text-4xl md:text-5xl font-bold mt-2 gradient-text">The MODULOS Ecosystem</h2>
+        <p class="text-gray-400 max-w-2xl mx-auto mt-3">Seamless flow of creative energy. Every stage unified.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div class="glass-premium p-5 rounded-xl" data-aos="fade-up"><div class="text-3xl mb-3">1</div><h3 class="text-xl font-bold">Pre-Production</h3><p class="text-gray-400 text-sm">Live script breakdowns, dynamic storyboarding, smart call sheets.</p></div>
+        <div class="glass-premium p-5 rounded-xl" data-aos="fade-up" data-aos-delay="80"><div class="text-3xl mb-3">2</div><h3 class="text-xl font-bold">Production</h3><p class="text-gray-400 text-sm">Zero-wait dailies, RAW ingest, lightweight proxies instantly.</p></div>
+        <div class="glass-premium p-5 rounded-xl" data-aos="fade-up" data-aos-delay="160"><div class="text-3xl mb-3">3</div><h3 class="text-xl font-bold">Post-Production</h3><p class="text-gray-400 text-sm">VFX roundtrips, HDR grading, spatial audio without local strain.</p></div>
+        <div class="glass-premium p-5 rounded-xl" data-aos="fade-up" data-aos-delay="240"><div class="text-3xl mb-3">4</div><h3 class="text-xl font-bold">Publishing</h3><p class="text-gray-400 text-sm">Multi-format render, QC checks, encrypted client handoffs.</p></div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 px-6 bg-black/30">
+      <div class="max-w-4xl mx-auto" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 gradient-text">Frequently Asked Questions</h2>
+        <div class="space-y-6">
+          <div class="glass-premium p-5 rounded-xl transition-all hover:border-[#f5b042]/60"><h3 class="text-lg font-bold">How does MODULOS handle massive RAW files remotely?</h3><p class="text-gray-300 text-sm">Hybrid proxy-first approach: edit with cloud-streamed proxies, high-res RAW syncs in background. Final render on cloud nodes.</p></div>
+          <div class="glass-premium p-5 rounded-xl transition-all hover:border-[#f5b042]/60"><h3 class="text-lg font-bold">Can we invite external clients for review without full project access?</h3><p class="text-gray-300 text-sm">Absolutely. Secure, password-protected review links with frame-specific comments, branded interface — no account required.</p></div>
+          <div class="glass-premium p-5 rounded-xl transition-all hover:border-[#f5b042]/60"><h3 class="text-lg font-bold">Does it replace Premiere Pro or DaVinci Resolve?</h3><p class="text-gray-300 text-sm">It supercharges them. Deep integration plugins for Premiere, Final Cut, Resolve — sync timelines, markers, media seamlessly.</p></div>
+          <div class="glass-premium p-5 rounded-xl transition-all hover:border-[#f5b042]/60"><h3 class="text-lg font-bold">What about IP security?</h3><p class="text-gray-300 text-sm">AES-256 encryption at rest & transit, enterprise SSO, forensic watermarking. Your content locked tighter than standard practices.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision Quote with GSAP subtle animation -->
+    <section class="py-16 px-6 max-w-5xl mx-auto text-center">
+      <div class="fake-ui" data-aos="zoom-in" data-aos-duration="800"><i class="fas fa-quote-left text-[#f5b042] text-2xl mb-3 inline-block"></i><p class="text-xl md:text-2xl italic text-gray-200">"The industry is evolving, but our tools are stuck in the past. We built MODULOS to tear down the silos between on-set crews, post houses, and clients. This is the new baseline for high-end production."</p><p class="text-[#f5b042] font-bold mt-4 tracking-wide">— The MODULOS Vision</p></div>
+    </section>
+
+    <!-- HIRE Section -->
     <section id="hire" class="py-20 px-6">
       <div class="max-w-4xl mx-auto glass-premium rounded-3xl p-8 border border-[#f5b042]/30" data-aos="fade-up">
-        <div class="text-center mb-6"><h2 class="text-3xl md:text-4xl font-bold gradient-text">Looking to hire a YouTube Producer?</h2><p class="text-gray-300 mt-2">Discover highly-rated, experienced YouTube Producer with a proven track record. Get the expertise you need.</p></div>
+        <div class="text-center mb-6"><h2 class="text-3xl md:text-4xl font-bold gradient-text">Looking to hire a YouTube Producer?</h2><p class="text-gray-300 mt-2">Experienced producer with proven track record. Get the expertise you need.</p></div>
         <div class="grid md:grid-cols-2 gap-6">
-          <div><input type="text" id="fullName" placeholder="Full name *" class="w-full mb-4"><input type="email" id="email" placeholder="Email address *" class="w-full mb-4"><input type="tel" id="whatsapp" placeholder="WhatsApp number *" class="w-full"><select id="inquiryType" class="w-full mt-4"><option>YouTube Producer Hire</option><option>Creative Direction</option><option>Channel Management</option></select></div>
+          <div><input type="text" id="fullName" placeholder="Full name *" class="w-full mb-4"><input type="email" id="email" placeholder="Email address *" class="w-full mb-4"><input type="tel" id="whatsapp" placeholder="WhatsApp number *" class="w-full"><select id="inquiryType" class="w-full mt-4"><option>YouTube Producer Hire</option><option>Creative Direction</option><option>Channel Management</option><option>Game Setup / Web App</option></select></div>
           <div><textarea id="projectDesc" rows="5" placeholder="Tell me about your channel, goals, and production needs..." class="w-full h-32"></textarea></div>
         </div>
         <button id="submitHireBtn" class="btn-hire w-full text-black font-bold py-3.5 rounded-full text-lg flex items-center justify-center gap-3 mt-6"><i class="fab fa-whatsapp text-xl"></i> Send inquiry via WhatsApp</button>
@@ -324,38 +330,22 @@
       </div>
     </section>
 
-    <!-- NEW: Social & Contact Strip (Instagram + Discord integrated) -->
+    <!-- Social Strip -->
     <section class="py-12 px-6 border-y border-[#f5b042]/20 bg-black/40">
       <div class="max-w-4xl mx-auto text-center">
         <h3 class="text-xl font-semibold gradient-text mb-6">CONNECT WITH THE ENGINE</h3>
         <div class="flex flex-wrap justify-center gap-8 md:gap-12">
-          <a href="https://www.instagram.com/modulosagy/" target="_blank" rel="noopener noreferrer" class="social-icon-circle flex flex-col items-center gap-2 group">
-            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#f5b042]/20 to-black border border-[#f5b042]/50 flex items-center justify-center group-hover:scale-110 transition-all"><i class="fab fa-instagram text-2xl text-[#f5b042]"></i></div>
-            <span class="text-xs text-gray-400">Instagram</span>
-          </a>
-          <a href="https://discord.gg/qeTtf8Ahx4" target="_blank" rel="noopener noreferrer" class="social-icon-circle flex flex-col items-center gap-2 group">
-            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#5865F2]/20 to-black border border-[#5865F2]/50 flex items-center justify-center group-hover:scale-110 transition-all"><i class="fab fa-discord text-2xl text-[#5865F2]"></i></div>
-            <span class="text-xs text-gray-400">Discord</span>
-          </a>
-          <a href="https://wa.me/917736512393" target="_blank" class="social-icon-circle flex flex-col items-center gap-2 group">
-            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#25D366]/20 to-black border border-[#25D366]/50 flex items-center justify-center group-hover:scale-110 transition-all"><i class="fab fa-whatsapp text-2xl text-[#25D366]"></i></div>
-            <span class="text-xs text-gray-400">WhatsApp</span>
-          </a>
-          <a href="mailto:hello@modulosagency.in" class="social-icon-circle flex flex-col items-center gap-2 group">
-            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#f5b042]/20 to-black border border-[#f5b042]/50 flex items-center justify-center group-hover:scale-110 transition-all"><i class="fas fa-envelope text-2xl text-[#f5b042]"></i></div>
-            <span class="text-xs text-gray-400">Email</span>
-          </a>
+          <a href="https://www.instagram.com/modulosagy/" target="_blank" rel="noopener noreferrer" class="social-icon-circle flex flex-col items-center gap-2 group"><div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#f5b042]/20 to-black border border-[#f5b042]/50 flex items-center justify-center group-hover:scale-110"><i class="fab fa-instagram text-2xl text-[#f5b042]"></i></div><span class="text-xs text-gray-400">Instagram</span></a>
+          <a href="https://discord.gg/qeTtf8Ahx4" target="_blank" rel="noopener noreferrer" class="social-icon-circle flex flex-col items-center gap-2 group"><div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#5865F2]/20 to-black border border-[#5865F2]/50 flex items-center justify-center group-hover:scale-110"><i class="fab fa-discord text-2xl text-[#5865F2]"></i></div><span class="text-xs text-gray-400">Discord</span></a>
+          <a href="https://wa.me/917736512393" target="_blank" class="social-icon-circle flex flex-col items-center gap-2 group"><div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#25D366]/20 to-black border border-[#25D366]/50 flex items-center justify-center group-hover:scale-110"><i class="fab fa-whatsapp text-2xl text-[#25D366]"></i></div><span class="text-xs text-gray-400">WhatsApp</span></a>
+          <a href="mailto:hello@modulosagency.in" class="social-icon-circle flex flex-col items-center gap-2 group"><div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#f5b042]/20 to-black border border-[#f5b042]/50 flex items-center justify-center group-hover:scale-110"><i class="fas fa-envelope text-2xl text-[#f5b042]"></i></div><span class="text-xs text-gray-400">Email</span></a>
         </div>
       </div>
     </section>
 
     <footer class="border-t border-[#f5b042]/20 py-8 text-center text-gray-500 text-sm">
       <p>© 2025 MODULOS — Next-Gen Media Production Engine. Founded by Uvesh (TurboIG)</p>
-      <div class="flex justify-center gap-4 mt-3 text-xs">
-        <a href="https://www.instagram.com/modulosagy/" target="_blank" class="hover:text-[#f5b042]"><i class="fab fa-instagram mr-1"></i> Instagram</a>
-        <a href="https://discord.gg/qeTtf8Ahx4" target="_blank" class="hover:text-[#5865F2]"><i class="fab fa-discord mr-1"></i> Discord</a>
-        <a href="https://wa.me/917736512393" target="_blank" class="hover:text-[#25D366]"><i class="fab fa-whatsapp mr-1"></i> WhatsApp</a>
-      </div>
+      <div class="flex justify-center gap-4 mt-3 text-xs"><a href="https://www.instagram.com/modulosagy/" target="_blank" class="hover:text-[#f5b042]"><i class="fab fa-instagram mr-1"></i> Instagram</a><a href="https://discord.gg/qeTtf8Ahx4" target="_blank" class="hover:text-[#5865F2]"><i class="fab fa-discord mr-1"></i> Discord</a><a href="https://wa.me/917736512393" target="_blank" class="hover:text-[#25D366]"><i class="fab fa-whatsapp mr-1"></i> WhatsApp</a></div>
     </footer>
     <a href="https://wa.me/917736512393" class="floating-wa"><i class="fab fa-whatsapp text-2xl text-white"></i></a>
   </main>
@@ -367,28 +357,43 @@
   <script>
     // Loader
     setTimeout(() => { let l = document.getElementById('loader'); if(l) { l.style.opacity = '0'; setTimeout(() => l.style.display = 'none', 800); } }, 1400);
-    // Particles
+    
+    // Particles animation
     const canvas = document.getElementById('particles-canvas');
     if(canvas) {
       const ctx = canvas.getContext('2d'); let particles = [];
       function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
       window.addEventListener('resize', resizeCanvas); resizeCanvas();
-      for(let i=0;i<110;i++) particles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, radius: Math.random() * 2 + 0.6, dx: (Math.random() - 0.5) * 0.45, dy: (Math.random() - 0.5) * 0.45, color: `rgba(245,176,66,${Math.random() * 0.3 + 0.1})` });
+      for(let i=0;i<120;i++) particles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, radius: Math.random() * 2 + 0.6, dx: (Math.random() - 0.5) * 0.45, dy: (Math.random() - 0.5) * 0.45, color: `rgba(245,176,66,${Math.random() * 0.3 + 0.1})` });
       function animate() { requestAnimationFrame(animate); ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.x += p.dx; p.y += p.dy; if(p.x < 0 || p.x > canvas.width) p.dx *= -1; if(p.y < 0 || p.y > canvas.height) p.dy *= -1; ctx.beginPath(); ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2); ctx.fillStyle = p.color; ctx.fill(); }); }
       animate();
     }
-    // custom cursor
-    if(window.innerWidth >= 768) { const dot = document.querySelector('.cursor-dot'), outline = document.querySelector('.cursor-outline'); document.addEventListener('mousemove', (e) => { if(dot) dot.style.transform = `translate(${e.clientX - 3}px, ${e.clientY - 3}px)`; if(outline) outline.style.transform = `translate(${e.clientX - 21}px, ${e.clientY - 21}px)`; }); }
-    AOS.init({ duration: 700, once: true });
-    // countdown timer (simulate global release)
+    
+    // Custom cursor with hover effects on interactive elements
+    if(window.innerWidth >= 768) {
+      const dot = document.querySelector('.cursor-dot'), outline = document.querySelector('.cursor-outline');
+      document.addEventListener('mousemove', (e) => { if(dot) dot.style.transform = `translate(${e.clientX - 3}px, ${e.clientY - 3}px)`; if(outline) outline.style.transform = `translate(${e.clientX - 21}px, ${e.clientY - 21}px)`; });
+      const links = document.querySelectorAll('a, button, .portfolio-card, .omnisphere-card, .social-icon-circle, .btn-hire');
+      links.forEach(el => { el.addEventListener('mouseenter', () => { if(outline) outline.style.transform = `scale(1.5) translate(${parseInt(outline.style.transform.split(',')[0].slice(11)) - 10}px, ${parseInt(outline.style.transform.split(',')[1]) - 10}px)`; }); el.addEventListener('mouseleave', () => { if(outline) outline.style.transform = `scale(1) translate(${parseInt(outline.style.transform.split(',')[0].slice(11)) + 10}px, ${parseInt(outline.style.transform.split(',')[1]) + 10}px)`; }); });
+    }
+    
+    // GSAP Scroll Animations (extra layer beyond AOS)
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.gradient-text', { scrollTrigger: { trigger: '#home', start: 'top top', end: 'bottom top', scrub: 1 }, opacity: 0.5, scale: 0.98 });
+    
+    AOS.init({ duration: 800, once: true, offset: 100 });
+    
+    // Countdown Timer
     function updateCountdown() { const target = new Date(); target.setDate(target.getDate() + 21); target.setHours(0,0,0,0); const now = new Date(); const diff = target - now; if(diff <= 0) document.getElementById('countdownDisplay').innerText = "00d : 00h : 00m : 00s"; else { const d = Math.floor(diff / (1000*60*60*24)); const h = Math.floor((diff % (86400000))/3600000); const m = Math.floor((diff % 3600000)/60000); const s = Math.floor((diff % 60000)/1000); document.getElementById('countdownDisplay').innerText = `${d}d : ${h.toString().padStart(2,'0')}h : ${m.toString().padStart(2,'0')}m : ${s.toString().padStart(2,'0')}s`; } }
     setInterval(updateCountdown, 1000); updateCountdown();
-    // mobile menu
+    
+    // Mobile Menu
     const menuBtn = document.getElementById('menuBtn'), drawer = document.getElementById('mobileDrawer'), closeMenu = document.getElementById('closeMenu');
     if(menuBtn) menuBtn.onclick = () => drawer.classList.remove('translate-x-full');
     if(closeMenu) closeMenu.onclick = () => drawer.classList.add('translate-x-full');
     document.querySelectorAll('#mobileDrawer a').forEach(a => a.addEventListener('click', () => drawer.classList.add('translate-x-full')));
-    // modals
+    
+    // Modals
     const imageModal = document.getElementById('imageModal'), videoModal = document.getElementById('videoModal'), modalImg = document.getElementById('modalImg'), modalVideo = document.getElementById('modalVideo'), videoSource = document.getElementById('videoSource');
     function closeAll() { if(imageModal) imageModal.style.display = 'none'; if(videoModal) videoModal.style.display = 'none'; if(modalVideo) modalVideo.pause(); }
     document.querySelectorAll('.portfolio-card').forEach(card => { card.addEventListener('click', (e) => { e.stopPropagation(); const type = card.getAttribute('data-type'), src = card.getAttribute('data-src'); if(type === 'video' && src) { videoSource.src = src; modalVideo.load(); modalVideo.muted = false; modalVideo.play().catch(e=>console.log); videoModal.style.display = 'flex'; } else if(type === 'image' && src) { modalImg.src = src; imageModal.style.display = 'flex'; } }); });
@@ -396,7 +401,8 @@
     if(imageModal) imageModal.onclick = (e) => { if(e.target === imageModal) closeAll(); };
     if(videoModal) videoModal.onclick = (e) => { if(e.target === videoModal) closeAll(); };
     document.getElementById('soundToggleBtn')?.addEventListener('click', () => { if(modalVideo) { modalVideo.muted = !modalVideo.muted; document.getElementById('soundToggleBtn').innerHTML = modalVideo.muted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>'; } });
-    // hire whatsapp
+    
+    // WhatsApp Hire
     document.getElementById('submitHireBtn')?.addEventListener('click', () => { const name = document.getElementById('fullName')?.value.trim(), email = document.getElementById('email')?.value.trim(), phone = document.getElementById('whatsapp')?.value.trim(), service = document.getElementById('inquiryType')?.value, details = document.getElementById('projectDesc')?.value.trim(), fb = document.getElementById('formFeedback'); if(!name || !email || !phone || !details) { if(fb) { fb.innerHTML = '⚠️ Please fill all fields'; fb.style.color = '#f5b042'; } return; } const msg = `🟡 *HIRE PRODUCER - MODULOS* %0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*WhatsApp:* ${encodeURIComponent(phone)}%0A*Inquiry:* ${encodeURIComponent(service)}%0A*Details:* ${encodeURIComponent(details)}`; window.open(`https://wa.me/917736512393?text=${msg}`, '_blank'); if(fb) { fb.innerHTML = '✅ Redirecting to WhatsApp'; fb.style.color = '#4ade80'; } setTimeout(() => { if(fb) fb.innerHTML = ''; }, 4000); });
   </script>
 </body>
