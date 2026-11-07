@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#073fbd">
-  <meta name="description" content="Modulos NFC Business Control Panel & Dashboard">
-  <title>Modulos | NFC Business Dashboard</title>
+  <title>Modulos | Secure Login</title>
   <style>
     :root {
       --blue:#0647cf; --blue-dark:#062d83; --ink:#101828; --muted:#667085;
@@ -15,13 +14,13 @@
     *{box-sizing:border-box}
     body{margin:0;font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:var(--ink);background:var(--pale);min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center}
     
-    .auth-card, .dashboard-card {
+    .auth-card {
       background: var(--white);
       padding: 40px;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       width: 100%;
-      max-width: 440px;
+      max-width: 420px;
       border: 1px solid var(--line);
     }
     
@@ -40,11 +39,6 @@
     .extra-links a {color:var(--blue);text-decoration:none;font-weight:600}
     .extra-links a:hover {text-decoration:underline}
 
-    #dashboardScreen {display: none; max-width: 900px;}
-    .dashboard-header {display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 20px;}
-    .logout-btn {background: #fee4e2; color: #b42318; width: auto; padding: 8px 16px; border-radius: 8px;}
-    .logout-btn:hover {background: #fecdca;}
-
     .alert {padding: 12px; border-radius: 10px; font-size: 13px; margin-bottom: 15px; display: none;}
     .alert-error {background: #fee4e2; color: #b42318;}
     .alert-success {background: #ecfdf3; color: #027a48;}
@@ -52,8 +46,7 @@
 </head>
 <body>
 
-  <!-- LOGIN SCREEN -->
-  <div class="auth-card" id="loginScreen">
+  <div class="auth-card">
     <div class="brand">
       <img src="/modulos.logo.png" alt="Modulos Logo"> modulos
     </div>
@@ -78,25 +71,9 @@
     </form>
   </div>
 
-  <!-- DASHBOARD SCREEN -->
-  <div class="dashboard-card" id="dashboardScreen">
-    <div class="dashboard-header">
-      <div class="brand" style="margin:0;">
-        <img src="/modulos.logo.png" alt="Modulos Logo"> NFC Admin Panel
-      </div>
-      <button class="btn logout-btn" onclick="handleLogout()">Logout</button>
-    </div>
-    
-    <div id="dashboardContent">
-      <h2>Welcome to your Dashboard! 🎉</h2>
-      <p style="color: var(--muted);">Aapka secure session active hai. Aap yahan apna NFC data manage kar sakte hain.</p>
-    </div>
-  </div>
-
-  <!-- FIREBASE SCRIPT WITH YOUR CONFIG -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+    import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyBL32KwCkJqSe2KBAO1sbuWLl83s4Cn8lo",
@@ -112,8 +89,6 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
-    const loginScreen = document.getElementById('loginScreen');
-    const dashboardScreen = document.getElementById('dashboardScreen');
     const authAlert = document.getElementById('authAlert');
 
     function showAlert(message, type = 'error') {
@@ -122,17 +97,30 @@
       authAlert.style.display = 'block';
     }
 
+    // Auto Check: Agar user pehle se logged-in hai toh seedha dashboard.html par bhejo
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        window.location.href = "dashboard.html";
+      }
+    });
+
+    // Login Function
     window.handleLogin = function(e) {
       e.preventDefault();
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
 
       signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          // Success hone par automatic redirect onAuthStateChanged handle kar lega
+          window.location.href = "dashboard.html";
+        })
         .catch((error) => {
-          showAlert("Login Failed: " + error.message);
+          showAlert("Login Failed: " + error.message, "error");
         });
     }
 
+    // Forgot Password
     window.handleForgotPassword = function(e) {
       e.preventDefault();
       const emailInput = document.getElementById('email');
@@ -146,26 +134,12 @@
 
       sendPasswordResetEmail(auth, email)
         .then(() => {
-          showAlert("Password reset link aapke email par bhej diya gaya hai! Apna inbox check karein.", "success");
+          showAlert("Password reset link aapke email par bhej diya gaya hai! Inbox check karein.", "success");
         })
         .catch((error) => {
           showAlert("Error: " + error.message, "error");
         });
     }
-
-    window.handleLogout = function() {
-      signOut(auth).catch((error) => console.log(error));
-    }
-
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        loginScreen.style.display = 'none';
-        dashboardScreen.style.display = 'block';
-      } else {
-        loginScreen.style.display = 'block';
-        dashboardScreen.style.display = 'none';
-      }
-    });
   </script>
 </body>
 </html>
