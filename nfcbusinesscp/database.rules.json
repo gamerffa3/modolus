@@ -1,0 +1,23 @@
+{
+  "rules": {
+    "businesses": {
+      ".read": true,
+      "$cardId": {
+        ".write": "auth != null && auth.token.email === 'geeky1934@gmail.com' && auth.token.email_verified === true",
+        ".validate": "newData.hasChildren(['cardId', 'name'])",
+        "cardId": { ".validate": "newData.isString() && newData.val() === $cardId" },
+        "name": { ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 100" },
+        "description": { ".validate": "newData.isString() && newData.val().length <= 500" },
+        "googleReview": { ".validate": "newData.isString() && newData.val().length <= 2048" },
+        "whatsapp": { ".validate": "newData.isString() && newData.val().length <= 100" },
+        "instagram": { ".validate": "newData.isString() && newData.val().length <= 2048" },
+        "facebook": { ".validate": "newData.isString() && newData.val().length <= 2048" },
+        "youtube": { ".validate": "newData.isString() && newData.val().length <= 2048" },
+        "location": { ".validate": "newData.isString() && newData.val().length <= 2048" },
+        "createdAt": { ".validate": "newData.isString()" },
+        "updatedAt": { ".validate": "newData.isString()" },
+        "$other": { ".validate": false }
+      }
+    }
+  }
+}
