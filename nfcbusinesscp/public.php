@@ -1,0 +1,7 @@
+<?php
+require_once __DIR__.'/includes/bootstrap.php';
+$id=$_GET['id']??'';
+if(!$id && isset($_SERVER['PATH_INFO']))$id=trim($_SERVER['PATH_INFO'],'/');
+$s=db()->prepare('SELECT * FROM businesses WHERE card_id=?');$s->execute([$id]);$b=$s->fetch();
+function link_button($label,$url,$icon){if(!$url)return '';return '<a class="public-btn" target="_blank" rel="noopener" href="'.h($url).'"><span>'.$icon.'</span>'.h($label).'<b>↗</b></a>';}
+?><!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title><?=h($b['name']??'Business card')?></title><link rel="stylesheet" href="assets/style.css"></head><body class="public-bg"><?php if(!$b): ?><div class="not-found"><div class="brand-mark">N</div><h1>Card not found</h1><p>This NFC card ID is not registered yet.</p><small>Card ID: <?=h($id)?></small></div><?php else: ?><article class="public-card"><div class="public-brand">DIGITAL BUSINESS CARD <span>POWERED BY MODULOS</span></div><h1><?=h($b['name'])?></h1><p class="public-desc"><?=nl2br(h($b['description']))?></p><div class="public-links"><?=link_button('Google Review',$b['google_review'],'★')?><?=link_button('WhatsApp',$b['whatsapp'],'◉')?><?=link_button('Instagram',$b['instagram'],'◎')?><?=link_button('Facebook',$b['facebook'],'f')?><?=link_button('YouTube',$b['youtube'],'▶')?><?=link_button('Location',$b['location'],'⌖')?></div><footer>Thank you · Powered by Modulos</footer></article><?php endif; ?></body></html>
